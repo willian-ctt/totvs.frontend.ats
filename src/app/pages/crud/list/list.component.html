@@ -1,0 +1,24 @@
+<po-loading-overlay [p-screen-lock]="true" *ngIf="isLoading()"></po-loading-overlay>
+<po-page-list [p-title]="getPageTitle()">
+	<po-table [p-actions]="getActions()" [p-actions-right]="true" [p-items]="getItems()"
+		(p-selected)="onSelectItem($event)" (p-unselected)="onSelectItem(null)" [p-selectable]="true"
+		[p-single-select]="true" [p-striped]="true" [p-sort]="true" [p-columns]="getColumns()">
+		<ng-template p-table-cell-template let-column="column" let-row="row">
+
+		</ng-template>
+	</po-table>
+	<po-divider></po-divider>
+	<div class="po-row">
+		<po-button class="po-md-2" p-label="Cadastrar Novo" (p-click)="onClickAddNew()"></po-button>
+		<po-button class="po-md-2" [p-disabled]="hasItemSelected() == false" p-label="Editar" (p-click)="onClickEdit()"></po-button>
+		<po-button class="po-md-2" [p-danger]="true" [p-disabled]="hasItemSelected() == false" p-label="Excluir" (p-click)="onClickDelete()">
+		</po-button>
+	</div>
+</po-page-list>
+
+<app-cadastrar-vaga-modal *ngIf="getPageCrud() == 'candidatos'" [isOpen]="getModalOpen() == 'cadastrar-vaga'"
+	(onClose)="onModalClose()"></app-cadastrar-vaga-modal>
+<app-cadastrar-curriculo-modal *ngIf="getPageCrud() == 'candidatos'" [isOpen]="getModalOpen() == 'cadastrar-curriculo'"
+	(onClose)="onModalClose()"></app-cadastrar-curriculo-modal>
+<app-candidatos-modals *ngIf="getPageCrud() == 'vagas'" [selectedItem]="getSelectedItem()"
+	[isOpen]="getModalOpen() == 'visualizar-candidatos'" (onClose)="onModalClose()"></app-candidatos-modals>

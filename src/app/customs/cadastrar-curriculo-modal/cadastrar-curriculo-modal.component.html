@@ -1,0 +1,5 @@
+<po-modal #modal [p-primary-action]="getModalConfirmAction()" [p-secondary-action]="getModalCancelAction()"
+	p-title="Cadastrar curriculo">
+	<po-upload name="upload" p-label="Enviar Curriculo" [p-auto-upload]="true" (p-success)="onSuccess()" p-url="https://po-sample-api.herokuapp.com/v1/uploads/addFile">
+	</po-upload>
+</po-modal>

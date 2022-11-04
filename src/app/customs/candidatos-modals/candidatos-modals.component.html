@@ -1,0 +1,13 @@
+
+<po-modal #modalCadastrarVaga [p-primary-action]="getModalConfirmAction()"
+	p-title="Listagem de Candidatos para a vaga">
+	<po-loading-overlay *ngIf="loading"></po-loading-overlay>
+	<po-list-view p-property-title="name" [p-items]="data">
+		<ng-template p-list-view-content-template let-item>
+			<div class="po-row">
+				<po-info class="po-md-6" p-label="Email" [p-value]="item.email"></po-info>
+				<po-info class="po-md-6" p-label="Idade" [p-value]="item.age"></po-info>
+			</div>
+		</ng-template>
+	</po-list-view>
+</po-modal>

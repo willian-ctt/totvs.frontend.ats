@@ -1,0 +1,11 @@
+<po-loading-overlay [p-screen-lock]="true" *ngIf="isLoading()"></po-loading-overlay>
+<po-page-edit *ngIf="method == 'update'" (p-cancel)="onCancel()" (p-save)="onSave()">
+	<ng-container *ngTemplateOutlet="formTemplate"></ng-container>
+</po-page-edit>
+<po-page-edit *ngIf="method == 'create'" (p-cancel)="onCancel()" (p-save-new)="onSaveNew()">
+	<ng-container *ngTemplateOutlet="formTemplate"></ng-container>
+</po-page-edit>
+
+<ng-template #formTemplate>
+	<po-dynamic-form [p-fields]="fields" [p-value]="data"></po-dynamic-form>
+</ng-template>
