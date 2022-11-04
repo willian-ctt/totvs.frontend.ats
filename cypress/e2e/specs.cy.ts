@@ -139,6 +139,6 @@ describe('vagas', () => {
     cy.get('.po-loading').should('not.exist');
     cy.get(':nth-child(2) > .po-table-row > .po-table-column-single-action > .po-table-single-action').click();
     cy.get('.po-loading').should('not.exist');
-    cy.contains('Listagem de Candidatos para a vaga!')
+    cy.contains('Listagem de Candidatos para a vaga')
   })
 })
