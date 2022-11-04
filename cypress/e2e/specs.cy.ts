@@ -39,6 +39,22 @@ describe('dashboard', () => {
 })
 
 describe('candidatos', () => {
+  it('should show "Cadastrar-se à vaga" modal', () => {
+    cy.visit('http://localhost:4200/candidatos/list')
+    cy.get('.po-loading').should('not.exist');
+    cy.get(':nth-child(4) > .po-table-row > .po-table-column-actions > .po-icon').click()
+    cy.get('.po-popup-container > :nth-child(1)').click();
+    cy.contains('Cadastrar-se à vaga');
+  })
+
+  it('should show "Cadastrar curriculo" modal', () => {
+    cy.visit('http://localhost:4200/candidatos/list')
+    cy.get('.po-loading').should('not.exist');
+    cy.get(':nth-child(4) > .po-table-row > .po-table-column-actions > .po-icon').click()
+    cy.get('.po-popup-container > :nth-child(2)').click();
+    cy.contains('Cadastrar curriculo');
+  })
+
   it('should load page', () => {
     cy.visit('http://localhost:4200/candidatos/list')
     cy.contains('Pesquisar')
@@ -75,6 +91,8 @@ describe('candidatos', () => {
     cy.get('[p-label="Excluir"] > .po-button').click()
     cy.contains('Registro excluido com sucesso!')
   })
+
+  
 })
 
 
@@ -114,5 +132,13 @@ describe('vagas', () => {
     cy.get(':nth-child(2) > .po-table-row > .po-table-column-selectable > .po-table-radio-label').click();
     cy.get('[p-label="Excluir"] > .po-button').click()
     cy.contains('Registro excluido com sucesso!')
+  })
+
+  it('should show modal', () => {
+    cy.visit('http://localhost:4200/vagas/list')
+    cy.get('.po-loading').should('not.exist');
+    cy.get(':nth-child(2) > .po-table-row > .po-table-column-single-action > .po-table-single-action').click();
+    cy.get('.po-loading').should('not.exist');
+    cy.contains('Listagem de Candidatos para a vaga!')
   })
 })
