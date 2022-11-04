@@ -2,6 +2,9 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.1.1.
 
+
+Para iniciar o projeto é necessario executar `npm i` para instalar todas as dependencias
+
 ## Como iniciar o servidor (development)
 
 Execute `npm start` para servidor de desenvolvimento. Acesse `http://localhost:4200/`. A aplicação irá atualizar automaticamente caso existam arquivos modificados.
